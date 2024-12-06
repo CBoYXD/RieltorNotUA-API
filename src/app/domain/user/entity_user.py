@@ -1,25 +1,30 @@
 from dataclasses import dataclass
-from typing import Self
+from typing import Optional
 from uuid import UUID
 
 from app.domain.base.entity import Entity
 from app.domain.user.enums import UserRole
-from app.domain.user.vo_user import UserId, Username, UserPasswordHash
+from app.domain.user.vo_user import UserId, UserFullname, UserEmail, UserName
 
 
 @dataclass(eq=False, kw_only=True)
 class User(Entity[UserId]):
-    username: Username
-    password_hash: UserPasswordHash
+    email: UserEmail
+    username: UserName
+    full_name: UserFullname
     role: UserRole
     is_active: bool
 
     @classmethod
-    def create(cls, *, user_id: UUID, username: str, password_hash: bytes, role: UserRole) -> Self:
+    def create(
+        cls, *, user_id: UUID, email: str, 
+        full_name: str, role: UserRole, username: str
+    ) -> User:
         return cls(
             id_=UserId(user_id),
-            username=Username(username),
-            password_hash=UserPasswordHash(password_hash),
+            username=UserName(username),
+            email=UserEmail(email),
+            full_name=Fullname(full_name),
             role=role,
             is_active=True,
         )
