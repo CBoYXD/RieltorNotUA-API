@@ -3,12 +3,13 @@ from typing import Optional
 from uuid import UUID
 
 from app.domain.base.entity import Entity
+from app.domain.base.value_object import Id
 from app.domain.user.enums import UserRole
-from app.domain.user.vo_user import UserId, UserFullname, UserEmail, UserName
+from app.domain.user.vo_user import UserFullname, UserEmail, UserName
 
 
 @dataclass(eq=False, kw_only=True)
-class User(Entity[UserId]):
+class User(Entity[Id]):
     email: UserEmail
     username: UserName
     full_name: UserFullname
@@ -21,10 +22,10 @@ class User(Entity[UserId]):
         full_name: str, role: UserRole, username: str
     ) -> User:
         return cls(
-            id_=UserId(user_id),
+            id_=Id(user_id),
             username=UserName(username),
             email=UserEmail(email),
-            full_name=Fullname(full_name),
+            full_name=UserFullname(full_name),
             role=role,
             is_active=True,
         )

@@ -1,7 +1,7 @@
 from abc import ABC
-from dataclasses import asdict, dataclass, fields
+from dataclasses import asdict, dataclass, fields, field
 from typing import Any
-
+from uuid import UUID, uuid4
 from app.domain.base.exceptions import DomainFieldError
 
 
@@ -55,3 +55,8 @@ class ValueObject(ABC):
         Returns a dictionary of all attributes and their values.
         """
         return asdict(self)
+
+
+@dataclass(frozen=True, repr=False)
+class Id(ValueObject):
+    value: UUID = field(default_factory=uuid4)

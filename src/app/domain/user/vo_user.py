@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-from uuid import UUID
 
 from app.domain.base.value_object import ValueObject
 from app.domain.user.validation.functions import (
@@ -8,11 +7,6 @@ from app.domain.user.validation.functions import (
     validate_username_pattern,
     validate_user_email
 )
-
-
-@dataclass(frozen=True, repr=False)
-class UserId(ValueObject):
-    value: UUID
 
 
 @dataclass(frozen=True, repr=False)
