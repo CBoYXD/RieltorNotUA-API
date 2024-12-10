@@ -14,7 +14,9 @@ from app.domain.offer.validation.constants import (
     PRICE_MAX,
     PRICE_MIN,
     PHOTO_EXTENSTIONS,
-    TAG_PATTERN
+    TAG_PATTERN,
+    MIN_FLOOR_NUM,
+    MAX_FLOOR_NUM
 )
 
 
@@ -78,3 +80,12 @@ def validate_photo(photo_value: str) -> None:
 def validate_tag(tag_value: str) -> None:
     if not re.match(TAG_PATTERN, tag_value):
         raise DomainFieldError("Cannot validate tag.")
+
+
+def validate_floor(floor_value: int) -> None:
+    if not (MIN_FLOOR_NUM <= floor_value <= MAX_FLOOR_NUM):
+        raise DomainFieldError(
+            f"Floor must be between "
+            f"{MIN_FLOOR_NUM} and "
+            f"{MAX_FLOOR_NUM}."
+        )

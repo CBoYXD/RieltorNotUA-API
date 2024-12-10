@@ -9,7 +9,8 @@ from app.domain.offer.validation.functions import (
     validate_longitude,
     validate_price,
     validate_photo,
-    validate_tag
+    validate_tag,
+    validate_floor
 )
 
 
@@ -104,3 +105,16 @@ class OfferTag:
         super().__post_init__()
 
         validate_tag(self.value)
+
+
+@dataclass(frozen=True, repr=False)
+class OfferFloor:
+    value: int
+    
+    def __post_init__(self) -> None:
+        """
+        :raises DomainFieldError:
+        """
+        super().__post_init__()
+
+        validate_floor(self.value)

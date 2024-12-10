@@ -26,3 +26,7 @@ PHOTO_EXTENSTIONS: list[str] = [".jpg", ".png", ".jpeg"]
 
 # Tag validation
 TAG_PATTERN: str = r'^[A-Za-z]{3,10}$'
+
+# Floor validation
+MIN_FLOOR_NUM: int = 0
+MAX_FLOOR_NUM: int = 30
