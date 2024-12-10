@@ -18,7 +18,7 @@ from app.domain.offer.validation.constants import (
 )
 
 
-def validate_area(area_value: int) -> None:
+def validate_area(area_value: float) -> None:
     if not (MIN_AREA_NUM <= area_value <= MAX_AREA_NUM):
         raise DomainFieldError(
             f"Area must be between "

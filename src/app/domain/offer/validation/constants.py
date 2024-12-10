@@ -1,8 +1,8 @@
 import re
 
 # Area validation
-MIN_AREA_NUM: int = 0
-MAX_AREA_NUM: int = 10000
+MIN_AREA_NUM: float = 10.0
+MAX_AREA_NUM: float = 10000.0
 
 # Name validation
 NAME_PATTERN: str = r'^[A-Za-zА-Яа-яіІїЇєЄє]+(?: [A-Za-zА-Яа-яіІїЇєЄє]+)*$'
