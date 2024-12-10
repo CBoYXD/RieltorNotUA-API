@@ -15,7 +15,7 @@ class UserFullname(ValueObject):
     # TODO: Add validation
 
 
-@dataclass
+@dataclass(frozen=True, repr=False)
 class UserEmail:
     value: str
     
@@ -28,7 +28,7 @@ class UserEmail:
         validate_user_email(self.value)
 
 
-@dataclass
+@dataclass(frozen=True, repr=False)
 class UserName:
     value: str
     
