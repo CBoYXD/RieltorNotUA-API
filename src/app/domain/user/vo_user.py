@@ -2,10 +2,9 @@ from dataclasses import dataclass
 
 from app.domain.base.value_object import ValueObject
 from app.domain.user.validation.functions import (
-    validate_password_length,
+    validate_user_email,
     validate_username_length,
     validate_username_pattern,
-    validate_user_email
 )
 
 
@@ -18,7 +17,7 @@ class UserFullname(ValueObject):
 @dataclass(frozen=True, repr=False)
 class UserEmail:
     value: str
-    
+
     def __post_init__(self) -> None:
         """
         :raises DomainFieldError:
@@ -31,7 +30,7 @@ class UserEmail:
 @dataclass(frozen=True, repr=False)
 class UserName:
     value: str
-    
+
     def __post_init__(self) -> None:
         """
         :raises DomainFieldError:

@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-from uuid import UUID
 
 from app.domain.user.entity_user import User
 from app.domain.user_auth.vo_user_auth import UserPasswordHash

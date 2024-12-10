@@ -1,7 +1,8 @@
 from abc import ABC
-from dataclasses import asdict, dataclass, fields, field
+from dataclasses import asdict, dataclass, field, fields
 from typing import Any
 from uuid import UUID, uuid4
+
 from app.domain.base.exceptions import DomainFieldError
 
 
@@ -27,7 +28,7 @@ class ValueObject(ABC):
         """
         if not fields(self):
             raise DomainFieldError(
-                f"{type(self).__name__} must have at least one field!"
+                f'{type(self).__name__} must have at least one field!'
             )
 
     def __repr__(self) -> str:
@@ -37,7 +38,7 @@ class ValueObject(ABC):
         - With 2+ fields: outputs in `name=value` format.
         Subclasses must set `repr=False` in @dataclass for this to work.
         """
-        return f"{type(self).__name__}({self._repr_value()})"
+        return f'{type(self).__name__}({self._repr_value()})'
 
     def _repr_value(self) -> str:
         """
@@ -47,8 +48,8 @@ class ValueObject(ABC):
         """
         all_fields = fields(self)
         if len(all_fields) == 1:
-            return f"{getattr(self, all_fields[0].name)!r}"
-        return ", ".join(f"{f.name}={getattr(self, f.name)!r}" for f in all_fields)
+            return f'{getattr(self, all_fields[0].name)!r}'
+        return ', '.join(f'{f.name}={getattr(self, f.name)!r}' for f in all_fields)
 
     def get_fields(self) -> dict[str, Any]:
         """

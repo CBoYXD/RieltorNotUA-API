@@ -5,7 +5,7 @@ from typing import Any, Generic, TypeVar
 from app.domain.base.exceptions import DomainError
 from app.domain.base.value_object import ValueObject
 
-T = TypeVar("T", bound=ValueObject)
+T = TypeVar('T', bound=ValueObject)
 
 
 @dataclass(eq=False)
@@ -25,8 +25,8 @@ class Entity(ABC, Generic[T]):
         Prevents modifying the `id` after it's set.
         Other attributes can be changed as usual.
         """
-        if name == "id_" and getattr(self, "id_", None) is not None:
-            raise DomainError("Changing entity id is not permitted.")
+        if name == 'id_' and getattr(self, 'id_', None) is not None:
+            raise DomainError('Changing entity id is not permitted.')
         super().__setattr__(name, value)
 
     def __eq__(self, other: Any) -> bool:

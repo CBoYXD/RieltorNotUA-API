@@ -4,6 +4,10 @@ from app.domain.base.value_object import ValueObject
 
 
 @dataclass(frozen=True, repr=False)
-class UserPasswordHash(ValueObject):
-    # TODO: Add validation
+class TagKey(ValueObject):
+    value: str
+
+
+@dataclass(frozen=True, repr=False)
+class TagValue(ValueObject):
     value: str
