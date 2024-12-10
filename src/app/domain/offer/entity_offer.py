@@ -28,6 +28,5 @@ class Offer(Entity[Id]):
     location: OfferLocation
     geocoding_location: dict
     price: OfferPrice
-    floor: OfferFloor
-    photos: list[OfferPhoto]
-    tags: Optional[list[OfferTag]]
+    photos: list[OfferPhoto] = []
+    tags: list[OfferTag] = []
