@@ -60,4 +60,4 @@ class ValueObject(ABC):
 
 @dataclass(frozen=True, repr=False)
 class Id(ValueObject):
-    value: UUID = field(default_factory=uuid4)
+    value: UUID

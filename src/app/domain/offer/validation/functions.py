@@ -1,22 +1,14 @@
 import re
 
-from app.domain.base.exceptions import DomainFieldError
-from app.domain.offer.validation.constants import (
+from src.app.domain.base.exceptions import DomainFieldError
+from src.app.domain.offer.validation.constants import (
     DESCRIPTION_MAX_LEN,
     DESCRIPTION_MIN_LEN,
-    LOCATION_LATITUDE_MAX,
-    LOCATION_LATITUDE_MIN,
-    LOCATION_LONGITUDE_MAX,
-    LOCATION_LONGITUDE_MIN,
     MAX_AREA_NUM,
-    MAX_FLOOR_NUM,
     MIN_AREA_NUM,
-    MIN_FLOOR_NUM,
     NAME_PATTERN,
-    PHOTO_EXTENSTIONS,
     PRICE_MAX,
     PRICE_MIN,
-    TAG_PATTERN,
 )
 
 

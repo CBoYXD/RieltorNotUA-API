@@ -15,7 +15,7 @@ class UserFullname(ValueObject):
 
 
 @dataclass(frozen=True, repr=False)
-class UserEmail:
+class UserEmail(ValueObject):
     value: str
 
     def __post_init__(self) -> None:
@@ -28,7 +28,7 @@ class UserEmail:
 
 
 @dataclass(frozen=True, repr=False)
-class UserName:
+class UserName(ValueObject):
     value: str
 
     def __post_init__(self) -> None:
