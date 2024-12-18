@@ -3,6 +3,15 @@ from datetime import datetime
 
 from src.app.domain.base.value_object import ValueObject
 from src.app.domain.user_auth.exceptions import TimestampError
+from src.app.domain.user_auth.validation.functions import validation_password_length
+
+
+@dataclass(frozen=True, repr=False)
+class RawPassword(ValueObject):
+    value: str
+
+    def __post_init__(self):
+        validation_password_length(self.value)
 
 
 @dataclass(frozen=True, repr=False)
@@ -37,7 +46,7 @@ class UserUpdateAt(ValueObject):
 
     :raises TimestampError: If the timestamp is invalid.
     """
-    value: datetime
+    value: datetime | None
 
     def __post_init__(self):
         if self.value > datetime.now():
