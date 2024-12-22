@@ -1,4 +1,4 @@
-from dataclasses import dataclass, fields
+from dataclasses import dataclass, fields, asdict
 from datetime import datetime
 from typing import List
 from uuid import UUID
@@ -13,29 +13,26 @@ from src.app.domain.user_auth.vo_user_auth import UserPasswordHash, UserCreatedA
 
 
 @dataclass(eq=False, kw_only=True)
-class UserAuth(Entity[Id]):
-    password: UserPasswordHash # ???
+class UserAuth(User):
+    password: UserPasswordHash
     created_at: UserCreatedAt
     updated_at: UserUpdateAt
-    user: User
 
 
-    def create_user(
-            self,
-            raw_password: RawPassword,
-            password_hasher: PasswordHasher, timestamp_manager: TimestampManager,
-    ):
-        # user_id = user_id_generator() or made right factory for id TODO
+    def create(
+        self,
+        raw_password: RawPassword,
+        password_hasher: PasswordHasher, timestamp_manager: TimestampManager,
+        user: User
+    ) -> UserAuth:
         password_hash: UserPasswordHash = UserPasswordHash(password_hasher.hash(raw_password))
         created_at: UserCreatedAt = UserCreatedAt(timestamp_manager.current_time())
-        updated_at: UserUpdateAt = UserUpdateAt(None)
-        user: User = None # TODO
+        updated_at: UserUpdateAt = UserUpdateAt(timestamp_manager.current_time())
         return UserAuth(
-            id_= "18418ydh1bdc97t4y1dbc3r1bcb937y5", #TODO
             password=password_hash,
             created_at=created_at,
             updated_at=updated_at,
-            user=user
+            **asdict(user)
         )
 
 
