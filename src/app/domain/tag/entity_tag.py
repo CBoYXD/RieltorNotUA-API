@@ -10,3 +10,16 @@ class Tag(Entity[Id]):
     offer_id: Id
     key: TagKey
     value: TagValue
+
+    def create(
+        id_generator: UUIDGenerator,
+        offer_id: Id,
+        key: str,
+        value: str
+    ) -> Tag:
+        return Tag(
+            id_=Id(id_generator()),
+            offer_id=offer_id,
+            key=TagKey(key),
+            value=TagValue(value)
+        )

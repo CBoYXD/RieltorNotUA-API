@@ -24,10 +24,19 @@ class User(Entity[Id]):
         full_name: str, role: UserRole, is_active: bool
     ) -> User:
         return User(
-            id_=Id(UUIDGenerator()),
+            id_=Id(UUIDGenerator()()),
             email=UserEmail(email),
             username=UserName(username),
             full_name=UserFullname(full_name),
             role=role,
             is_active=is_active
         )
+
+    def deactivate(self) -> None:
+        self.is_active = False
+
+    def change_role(self, new_role: UserRole) -> None:
+        self.role = new_role
+
+    def update_full_name(self, new_full_name: str) -> None:
+        self.full_name = UserFullname(new_full_name)

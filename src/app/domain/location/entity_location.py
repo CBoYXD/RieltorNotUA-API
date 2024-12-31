@@ -26,3 +26,28 @@ class Location(Entity[Id]):
     latitude: LocationLatitude
     longitude: LocationLongitude
     formatted_adress: LocationFormattedAdress
+
+    def create(
+        id_generator: UUIDGenerator,
+        offer_id: Id,
+        region: str,
+        district: str,
+        main_locality: str,
+        latitude: str,
+        longitude: str,
+        formatted_address: str,
+        street: str | None = None,
+        house_number: str | None = None,
+    ) -> Location:
+        return Location(
+            id_=Id(id_generator()),
+            offer_id=offer_id,
+            region=LocationRegion(region),
+            district=LocationDistrict(district),
+            main_locality=LocationMainLocality(main_locality),
+            street=LocationStreet(street) if street else None,
+            house_number=LocationHouseNumber(house_number) if house_number else None,
+            latitude=LocationLatitude(latitude),
+            longitude=LocationLongitude(longitude),
+            formatted_adress=LocationFormattedAdress(formatted_address)
+        )
