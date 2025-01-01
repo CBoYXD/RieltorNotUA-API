@@ -20,16 +20,7 @@ class AuthRepository(Protocol):
         """
 
     @abstractmethod
-    async def read_by_email(
-            self, username: UserEmail, for_update: bool = False
-    ) -> UserAuth | None:
-        """
-        :raises DataMapperError:
-        """
-
-
-    @abstractmethod
-    async def read_all(self, limit: int, offset: int) -> List[UserAuth]:
+    async def read_by_email(self, username: UserEmail) -> UserAuth | None:
         """
         :raises DataMapperError:
         """
