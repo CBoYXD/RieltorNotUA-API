@@ -1,9 +1,9 @@
 from dataclasses import dataclass
 from datetime import datetime
 
-from src.app.domain.base.value_object import ValueObject
-from src.app.domain.user_auth.exceptions import TimestampError
-from src.app.domain.user_auth.validation.functions import validation_password_length
+from app.domain.base.value_object import ValueObject
+from app.domain.user_auth.exceptions import TimestampError
+from app.domain.user_auth.validation.functions import validation_password_length
 
 
 @dataclass(frozen=True, repr=False)

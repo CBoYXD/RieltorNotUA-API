@@ -1,6 +1,6 @@
-from src.app.domain.base.exceptions import DomainFieldError
-from src.app.domain.user_auth.exceptions import RawPasswordError
-from src.app.domain.user_auth.validation.constants import PASSWORD_MIN_LEN
+from app.domain.base.exceptions import DomainFieldError
+from app.domain.user_auth.exceptions import RawPasswordError
+from app.domain.user_auth.validation.constants import PASSWORD_MIN_LEN
 
 
 def validation_password_length(password_value: str) -> None:

@@ -1,7 +1,7 @@
 import re
 
-from src.app.domain.base.exceptions import DomainFieldError
-from src.app.domain.offer.validation.constants import (
+from app.domain.base.exceptions import DomainFieldError
+from app.domain.offer.validation.constants import (
     DESCRIPTION_MAX_LEN,
     DESCRIPTION_MIN_LEN,
     MAX_AREA_NUM,

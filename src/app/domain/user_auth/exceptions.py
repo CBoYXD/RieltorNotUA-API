@@ -1,7 +1,7 @@
 from datetime import datetime
 
 
-from src.app.domain.base.exceptions import DomainFieldError
+from app.domain.base.exceptions import DomainFieldError
 
 
 class TimestampError(DomainFieldError):

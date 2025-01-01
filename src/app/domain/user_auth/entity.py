@@ -4,12 +4,12 @@ from typing import List
 from uuid import UUID
 
 
-from src.app.domain.base.entity import Entity
-from src.app.domain.base.value_object import Id
-from src.app.domain.user.entity import User
-from src.app.domain.user_auth.ports.password_hasher import PasswordHasher
-from src.app.domain.user_auth.ports.timestamp_manager import TimestampManager
-from src.app.domain.user_auth.value_object import UserPasswordHash, UserCreatedAt, UserUpdateAt, RawPassword
+from app.domain.base.entity import Entity
+from app.domain.base.value_object import Id
+from app.domain.user.entity import User
+from app.domain.user_auth.ports.password_hasher import PasswordHasher
+from app.domain.user_auth.ports.timestamp_manager import TimestampManager
+from app.domain.user_auth.value_object import UserPasswordHash, UserCreatedAt, UserUpdateAt, RawPassword
 
 
 @dataclass(eq=False, kw_only=True)
