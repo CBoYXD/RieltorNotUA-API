@@ -2,7 +2,7 @@ from dataclasses import dataclass
 
 from app.domain.base.entity import Entity
 from app.domain.base.value_object import Id
-from app.domain.tag.vo_tag import TagKey, TagValue
+from app.domain.tag.value_object import TagKey, TagValue
 
 
 @dataclass(eq=False, kw_only=True)

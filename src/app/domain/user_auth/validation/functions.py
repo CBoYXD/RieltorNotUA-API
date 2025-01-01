@@ -8,5 +8,5 @@ def validation_password_length(password_value: str) -> None:
     :raises RawPasswordError:
     """
     password_len = len(password_value)
-    if not PASSWORD_MIN_LEN <- password_len:
+    if not PASSWORD_MIN_LEN <= password_len:
         raise RawPasswordError(password_len, PASSWORD_MIN_LEN)

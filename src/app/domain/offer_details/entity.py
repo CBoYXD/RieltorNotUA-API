@@ -1,9 +1,9 @@
 from dataclasses import dataclass, asdict
 
 from app.domain.base.value_object import Id
-from app.domain.offer.entity_offer import Offer
-from app.domain.offer_details.vo_offer_details import OfferDetailsDescription
-from app.domain.base.id_generator import UUIDGenerator
+from app.domain.offer.entity import Offer
+from app.domain.offer_details.value_object import OfferDetailsDescription
+from app.domain.base.ports.uuid_generator import UUIDGenerator
 
 
 @dataclass(eq=False, kw_only=True)

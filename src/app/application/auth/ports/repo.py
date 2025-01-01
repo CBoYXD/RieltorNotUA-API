@@ -2,8 +2,8 @@ from abc import abstractmethod
 from typing import Protocol, List
 
 from src.app.domain.base.value_object import Id
-from src.app.domain.user.vo_user import UserEmail
-from src.app.domain.user_auth.entity_user_auth import UserAuth
+from src.app.domain.user.value_object import UserEmail
+from src.app.domain.user_auth.entity import UserAuth
 
 
 class AuthRepository(Protocol):

@@ -6,10 +6,10 @@ from uuid import UUID
 
 from src.app.domain.base.entity import Entity
 from src.app.domain.base.value_object import Id
-from src.app.domain.user.entity_user import User
+from src.app.domain.user.entity import User
 from src.app.domain.user_auth.ports.password_hasher import PasswordHasher
 from src.app.domain.user_auth.ports.timestamp_manager import TimestampManager
-from src.app.domain.user_auth.vo_user_auth import UserPasswordHash, UserCreatedAt, UserUpdateAt, RawPassword
+from src.app.domain.user_auth.value_object import UserPasswordHash, UserCreatedAt, UserUpdateAt, RawPassword
 
 
 @dataclass(eq=False, kw_only=True)

@@ -2,8 +2,8 @@ from abc import abstractmethod
 from typing import Protocol, List
 
 from src.app.domain.base.value_object import Id
-from src.app.domain.offer.entity_offer import Offer
-from src.app.domain.offer_details.entity_offer_details import OfferDetails
+from src.app.domain.offer.entity import Offer
+from src.app.domain.offer_details.entity import OfferDetails
 
 
 class CabinetRepository(Protocol):

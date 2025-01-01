@@ -3,7 +3,8 @@ from typing import Optional
 
 from app.domain.base.entity import Entity
 from app.domain.base.value_object import Id
-from app.domain.location.vo_location import (
+from app.domain.base.ports.uuid_generator import UUIDGenerator
+from app.domain.location.value_object import (
     LocationDistrict,
     LocationFormattedAdress,
     LocationHouseNumber,

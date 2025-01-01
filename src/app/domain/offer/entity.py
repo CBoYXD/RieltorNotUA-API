@@ -2,8 +2,9 @@ from dataclasses import dataclass
 
 from app.domain.base.entity import Entity
 from app.domain.base.value_object import Id
+from app.domain.base.ports.uuid_generator import UUIDGenerator
 from app.domain.offer.enums import OfferPlaceType, OfferType
-from app.domain.offer.vo_offer import OfferArea, OfferName, OfferPrice
+from app.domain.offer.value_object import OfferArea, OfferName, OfferPrice
 
 
 @dataclass(eq=False, kw_only=True)

@@ -2,7 +2,8 @@ from dataclasses import dataclass
 
 from app.domain.base.entity import Entity
 from app.domain.base.value_object import Id
-from app.domain.photo.vo_photo import PhotoExtenstion, PhotoName
+from app.domain.base.ports.uuid_generator import UUIDGenerator
+from app.domain.photo.value_object import PhotoExtenstion, PhotoName
 
 
 @dataclass(eq=False, kw_only=True)

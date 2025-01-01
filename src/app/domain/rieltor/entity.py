@@ -1,12 +1,12 @@
 from dataclasses import dataclass, asdict
 
-from app.domain.rieltor.vo_rieltor import (
+from app.domain.rieltor.value_object import (
     RieltorAgencyName,
     RieltorExperienceYears,
     RieltorLicenseNumber,
 )
-from app.domain.user.entity_user import User
-from app.domain.common.id_generator import UUIDGenerator
+from app.domain.user.entity import User
+from app.domain.base.ports.uuid_generator import UUIDGenerator
 
 
 @dataclass(eq=False, kw_only=True)
