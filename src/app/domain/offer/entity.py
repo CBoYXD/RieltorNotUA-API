@@ -16,6 +16,7 @@ class Offer(Entity[Id]):
     area: OfferArea
     name: OfferName
     price: OfferPrice
+    formatted_address: str
 
     def create(
         id_generator: UUIDGenerator,
@@ -24,7 +25,8 @@ class Offer(Entity[Id]):
         offer_type: OfferType,
         area: float,
         name: str,
-        price: int
+        price: int,
+        formatted_address: str
     ) -> Offer:
         return Offer(
             id_=Id(id_generator()),
@@ -33,5 +35,6 @@ class Offer(Entity[Id]):
             offer_type=offer_type,
             area=OfferArea(area),
             name=OfferName(name),
-            price=OfferPrice(price)
+            price=OfferPrice(price),
+            formatted_address=str
         )
