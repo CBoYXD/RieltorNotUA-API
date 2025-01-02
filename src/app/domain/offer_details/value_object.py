@@ -15,3 +15,7 @@ class OfferDetailsDescription(ValueObject):
         super().__post_init__()
 
         validate_description(self.value)
+
+@dataclass(frozen=True, repr=False)
+class OfferDetailsPhoto(ValueObject):
+    value: str

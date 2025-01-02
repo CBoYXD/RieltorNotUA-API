@@ -9,6 +9,7 @@ from app.domain.offer.value_object import OfferArea, OfferName, OfferPrice
 
 @dataclass(eq=False, kw_only=True)
 class Offer(Entity[Id]):
+    # RO model
     author_id: Id
     place_type: OfferPlaceType
     offer_type: OfferType

@@ -10,18 +10,18 @@ from app.domain.base.ports.uuid_generator import UUIDGenerator
 class OfferDetails(Offer):
     description: OfferDetailsDescription
     tags: list[Id]
-    photos: list[Id]
+    photos: list[OfferDetailsPhoto]
 
     def create(
         id_generator: UUIDGenerator,
         offer: Offer,
         description: str,
         tags: list[Id],
-        photos: list[Id]
+        photos: list[str]
     ) -> OfferDetails:
         return OfferDetails(
             description=OfferDetailsDescription(description),
             tags=tags,
-            photos=photos,
+            photos=[OfferDetailsPhoto(photo) for photo in photos],
             **asdict(offer)
         )
