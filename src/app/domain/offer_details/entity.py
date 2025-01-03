@@ -2,7 +2,11 @@ from dataclasses import dataclass, asdict
 
 from app.domain.base.value_object import Id
 from app.domain.offer.entity import Offer
-from app.domain.offer_details.value_object import OfferDetailsDescription
+from app.domain.offer_details.value_object import (
+    OfferDetailsDescription, 
+    OfferDetailsPhoto, 
+    OfferDetailsTag
+)
 from app.domain.base.ports.uuid_generator import UUIDGenerator
 
 
@@ -16,12 +20,12 @@ class OfferDetails(Offer):
         id_generator: UUIDGenerator,
         offer: Offer,
         description: str,
-        tags: list[Id],
+        tags: list[str],
         photos: list[str]
     ) -> OfferDetails:
         return OfferDetails(
             description=OfferDetailsDescription(description),
-            tags=tags,
+            tags=[OfferDetailsTag(tag) for tag in tags],
             photos=[OfferDetailsPhoto(photo) for photo in photos],
             **asdict(offer)
         )
