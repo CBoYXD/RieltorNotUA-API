@@ -5,7 +5,7 @@ from app.domain.user.value_object import UserEmail
 from app.domain.user_auth.entity import UserAuth
 
 
-class UserAuthQueryRepository(Protocol):
+class UserAuthQueryGateway(Protocol):
 
     @abstractmethod
     async def read_by_id(self, user_id: Id) -> Optional[UserAuth]:
@@ -14,7 +14,7 @@ class UserAuthQueryRepository(Protocol):
         """
 
     @abstractmethod
-    async def read_by_email(self, username: UserEmail) -> Optional[UserAuth]:
+    async def read_by_email(self, email: UserEmail) -> Optional[UserAuth]:
         """
         :raises DataMapperError:
         """

@@ -3,7 +3,7 @@ from abc import abstractmethod
 from app.domain.user.entity import User
 
 
-class UserCommandRepository(Protocol):
+class UserCommandGateway(Protocol):
     @abstractmethod
     async def save(self, user: User) -> None:
         """
