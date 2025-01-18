@@ -2,6 +2,8 @@ import re
 
 USERNAME_MIN_LEN: int = 5
 USERNAME_MAX_LEN: int = 20
+FULLNAME_MIN_LEN: int = 5
+FULLNAME_MAX_LEN: int = 30
 
 # Pattern for validating a username:
 # - starts with a letter (A-Z, a-z) or a digit (0-9)
