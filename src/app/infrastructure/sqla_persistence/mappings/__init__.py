@@ -22,7 +22,13 @@ during database migrations.
 """
 
 from app.infrastructure.sqla_persistence.mappings.user import map_users_table
+from app.infrastructure.sqla_persistence.mappings.offer import map_offers_table, map_offer_details_table
+from app.infrastructure.sqla_persistence.mappings.rieltor import map_rieltors_table
 
 
 def map_tables() -> None:
     map_users_table()
+    map_offers_table()
+    map_offer_details_table()
+    map_rieltors_table()
+
