@@ -1,5 +1,6 @@
 from typing import List
 from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy import delete
 
 from app.application.common.ports.gateways.command.offer import OfferCommandGateway
 from app.domain.base.value_object import Id
@@ -55,8 +56,6 @@ class OfferCommandGatewayImpl(OfferCommandGateway):
         :raises DataMapperError: If database operation fails
         """
         try:
-            offers = await self._session.query(Offer).filter(Offer.user_id == user_id).all()
-            for offer in offers:
-                await self._session.delete(offer)
+            await self._session.execute(delete(Offer))
         except Exception as e:
             raise DataMapperError(f"Failed to delete all offers: {str(e)}")
